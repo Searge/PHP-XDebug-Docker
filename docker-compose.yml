@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  php-fpm:
+    build:
+      context: ./docker/php-fpm
+    volumes:
+      - ./docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
+      - ./src:/var/www
+    environment:
+      # ! HOST address.
+      XDEBUG_CONFIG: "remote_host=192.168.64.1 remote_enable=1"
+      PHP_IDE_CONFIG: "serverName=Docker"
+    networks:
+      - internal
+
+  nginx:
+    build:
+      context: ./docker/nginx
+    volumes:
+      - ./docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www
+    ports:
+      - "80:80"
+    depends_on:
+      - php-fpm
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.64.0/28
