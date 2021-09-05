@@ -29,6 +29,7 @@ services:
 networks:
   internal:
     driver: bridge
+    # IP Address Management
     ipam:
       driver: default
       config:
