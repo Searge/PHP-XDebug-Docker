@@ -15,7 +15,8 @@
             "bmewburn.vscode-intelephense-client",
             "ikappas.phpcs",
             "ms-azuretools.vscode-docker",
-            "formulahendry.docker-explorer"
+            "formulahendry.docker-explorer",
+            "shanoor.vscode-nginx"
         ]
     },
     "launch": {
