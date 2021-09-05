@@ -5,9 +5,11 @@
         }
     ],
     "settings": {
-        "php.validate.enable": true,
-        "php.validate.run": "onSave",
-        "php.suggest.basic": false
+        "php.suggest.basic": false,
+        "php.validate.enable": false,
+        // "php.validate.run": "onSave",
+        "docker-linter.php.enable": true,
+        "docker-linter.php.container": "php-fpm"
     },
     "extensions": {
         "recommendations": [
@@ -16,6 +18,7 @@
             "ikappas.phpcs",
             "ms-azuretools.vscode-docker",
             "formulahendry.docker-explorer",
+            "henriiik.docker-linter",
             "shanoor.vscode-nginx"
         ]
     },
